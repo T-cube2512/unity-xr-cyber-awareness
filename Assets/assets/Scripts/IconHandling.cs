@@ -14,12 +14,15 @@ public class IconHandling : MonoBehaviour
     public Color hovcol = new Color(1,1,1,0.3f);
     public Color clickcol = new Color(1,1,1,0.7f);
 
+    private bool clicked;
+
 
 
 
     void Start()
     {
         img.color =  noclickcol;
+        clicked = false;
     }
 
 
@@ -33,9 +36,17 @@ public void changeCol() {
 
     public void clickchange(){
         if(img.color == hovcol || img.color == noclickcol){
-        img.color = clickcol;}
-        else
+        img.color = clickcol;
+        clicked = !clicked;}
+        else{
         img.color=hovcol;
+        clicked = !clicked;
+    }
+    }
+
+    private void Update() {
+        if(clicked) img.color = clickcol;
+        
     }
     
 }
