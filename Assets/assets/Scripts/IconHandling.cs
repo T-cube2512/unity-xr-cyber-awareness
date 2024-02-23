@@ -10,11 +10,16 @@ public class IconHandling : MonoBehaviour
 
     public Image img;    
 
+    public GameObject desktop;
+
     public Color noclickcol = new Color(1,1,1,0);
     public Color hovcol = new Color(1,1,1,0.3f);
     public Color clickcol = new Color(1,1,1,0.7f);
 
     private bool clicked;
+    private bool doubleclicked;
+
+    public bool isvirus;
 
 
 
@@ -47,6 +52,8 @@ public void changeCol() {
     private void Update() {
         if(clicked) img.color = clickcol;
         
+
+
     }
     
 }
