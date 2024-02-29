@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 
 
-public class IconHandling : MonoBehaviour
+public class IconHandling : MonoBehaviour ,IPointerEnterHandler, IPointerExitHandler , IPointerClickHandler
 {
 
     public Image img;    
@@ -19,7 +20,8 @@ public class IconHandling : MonoBehaviour
     private bool clicked;
     private bool doubleclicked;
 
-    public bool isvirus;
+    public bool isVirus;
+    public bool isTaskbarIcon;
 
 
 
@@ -30,8 +32,27 @@ public class IconHandling : MonoBehaviour
         clicked = false;
     }
 
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        changeCol();
+        Debug.Log("hover enter");
 
-public void changeCol() {
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        backtonormal();
+        Debug.Log("hover stop");
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        clickchange();
+        Debug.Log("clicked");
+    }
+
+
+    public void changeCol() {
         img.color = hovcol;
     }
 
@@ -40,13 +61,19 @@ public void changeCol() {
     }
 
     public void clickchange(){
-        if(img.color == hovcol || img.color == noclickcol){
-        img.color = clickcol;
-        clicked = !clicked;}
-        else{
-        img.color=hovcol;
-        clicked = !clicked;
-    }
+        if (!isTaskbarIcon)
+        {
+            if (img.color == hovcol || img.color == noclickcol)
+            {
+                img.color = clickcol;
+                clicked = !clicked;
+            }
+            else
+            {
+                img.color = hovcol;
+                clicked = !clicked;
+            }
+        }
     }
 
     private void Update() {
