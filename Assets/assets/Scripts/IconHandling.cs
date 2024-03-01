@@ -3,29 +3,58 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using Unity.VisualScripting;
+using JetBrains.Annotations;
+using UnityEngine.SceneManagement;
 
 public class IconHandling : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
     public Image img;
+    public Image icon;
+
+    public Sprite virusicon;
     public GameObject desktop;
+    public GameObject wifiscreen;
+    public GameObject taskmanagerscreen;
+    public GameObject ocwifi;
+
+
+    public GameObject virustask;
     public Sprite virusbg;
+    public Text wifitext;
+    public Sprite wifichange;
+    public GameObject wifistable;
     public Color noclickcol = new Color(1, 1, 1, 0);
     public Color hovcol = new Color(1, 1, 1, 0.3f);
     public Color clickcol = new Color(1, 1, 1, 0.7f);
 
+    public bool isSoftwareApp;
     public bool isVirus;
+    public bool isTaskManager;
     public bool isTaskbarIcon;
+    public bool isWifi;
+    public bool isWifistable;
 
-    private bool clicked;
+
+    public bool virusAttackedFlag;
+    public bool networkShutFlag;
+    public bool taskEndedFlag;
+
+
+    public bool clicked;
     public bool doubleClicked;
-    private float clickTimeThreshold = 0.3f; // Adjust this threshold as needed
+    private float clickTimeThreshold = 0.3f; 
     private float lastClickTime;
+
+
 
     void Start()
     {
         img.color = noclickcol;
         clicked = false;
         doubleClicked = false;
+ 
+
     }
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -44,11 +73,19 @@ public class IconHandling : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         if (timeSinceLastClick <= clickTimeThreshold)
         {
             doubleClicked = true;
-            // Perform double click action here
+
             if(doubleClicked && isVirus)
             {
-                desktop.GetComponent<Image>().sprite = virusbg;
+                virusAttackedFlag = true;
+                
             }
+
+            if (doubleClicked && isTaskManager)
+            {
+                taskmanagerscreen.SetActive(true);
+            }
+
+
         }
         else
         {
@@ -83,11 +120,62 @@ public class IconHandling : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
                 clicked = !clicked;
             }
         }
+
+        if (clicked && isWifi)
+        {
+            wifiscreen.SetActive(true);
+            clicked = !clicked;
+        }
+        else if (!clicked && isWifi)
+        {
+            wifiscreen.SetActive(false);
+            clicked = !clicked;
+        }
+
+        
+
+        if(clicked && isWifistable)
+        {
+            wifitext.color = Color.black;
+            wifistable.GetComponent<Image>().sprite = wifichange;
+            ocwifi.SetActive(false);
+            networkShutFlag = true;
+            Debug.Log("networkshutflag = " + networkShutFlag.ToString());
+
+        }
+
+
     }
+
 
     private void Update()
     {
         if (clicked)
             img.color = clickcol;
+
+        if(virusAttackedFlag)
+        {
+            desktop.GetComponent<Image>().sprite = virusbg;
+            Debug.Log("changed wp");
+            if(isSoftwareApp)
+            {
+                icon.GetComponent<Image>().sprite = virusicon;
+            Debug.Log("changed icon" +gameObject.name);
+
+            }
+        }
+        if(!isVirus)
+        if (desktop.GetComponent<Image>().sprite == virusbg)
+        {
+            virusAttackedFlag = true;
+        }
+
+    }
+
+    public void endtask()
+    {
+        taskEndedFlag = true;
+        virusAttackedFlag = false;
+        virustask.SetActive(false );
     }
 }
