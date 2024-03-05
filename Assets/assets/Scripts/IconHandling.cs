@@ -9,14 +9,20 @@ using UnityEngine.SceneManagement;
 
 public class IconHandling : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
+    public FlagHandler FlagHandler;
+
+
     public Image img;
     public Image icon;
 
     public Sprite virusicon;
     public GameObject desktop;
+    public GameObject messagebox;
     public GameObject wifiscreen;
     public GameObject taskmanagerscreen;
     public GameObject ocwifi;
+
+
 
 
     public GameObject virustask;
@@ -76,8 +82,10 @@ public class IconHandling : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
             if(doubleClicked && isVirus)
             {
-                virusAttackedFlag = true;
-                
+                FlagHandler.setVirusAttackedFlag(true);
+                messagebox.SetActive(true);
+
+
             }
 
             if (doubleClicked && isTaskManager)
@@ -139,8 +147,8 @@ public class IconHandling : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
             wifitext.color = Color.black;
             wifistable.GetComponent<Image>().sprite = wifichange;
             ocwifi.SetActive(false);
-            networkShutFlag = true;
-            Debug.Log("networkshutflag = " + networkShutFlag.ToString());
+            FlagHandler.setNetworkShutFlag(true);
+            
 
         }
 
@@ -153,7 +161,7 @@ public class IconHandling : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         if (clicked)
             img.color = clickcol;
 
-        if(virusAttackedFlag)
+        if(FlagHandler.getVirusAttackedFlag())
         {
             desktop.GetComponent<Image>().sprite = virusbg;
             Debug.Log("changed wp");
@@ -162,20 +170,19 @@ public class IconHandling : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
                 icon.GetComponent<Image>().sprite = virusicon;
             Debug.Log("changed icon" +gameObject.name);
 
+
             }
+            
         }
-        if(!isVirus)
-        if (desktop.GetComponent<Image>().sprite == virusbg)
-        {
-            virusAttackedFlag = true;
-        }
+        
+        
 
     }
 
     public void endtask()
     {
-        taskEndedFlag = true;
-        virusAttackedFlag = false;
+        FlagHandler.setTaskEndedFlag(true);
+        FlagHandler.setVirusAttackedFlag(false);
         virustask.SetActive(false );
     }
 }
