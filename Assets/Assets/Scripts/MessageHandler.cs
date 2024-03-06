@@ -8,12 +8,7 @@ public class MessageHandler : MonoBehaviour
 {
     public GameObject message;
     public FlagHandler FlagHandler;
-    public GameObject textfile;
 
 
-    public void closeandopentext()
-    {
-        textfile.SetActive(true);
-        message.SetActive(false); 
-    }
+    
 }

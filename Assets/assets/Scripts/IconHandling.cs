@@ -22,7 +22,8 @@ public class IconHandling : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     public GameObject taskmanagerscreen;
     public GameObject ocwifi;
 
-
+    public GameObject holoprojector;
+    public GameObject gojosatoru;
 
 
     public GameObject virustask;
@@ -84,6 +85,8 @@ public class IconHandling : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
             {
                 FlagHandler.setVirusAttackedFlag(true);
                 messagebox.SetActive(true);
+
+                Invoke("activateholo", 5.0f);
 
 
             }
@@ -155,7 +158,11 @@ public class IconHandling : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
     }
 
-
+    public void activateholo()
+    {
+        holoprojector.SetActive(true);
+        gojosatoru.SetActive(true);
+    }
     private void Update()
     {
         if (clicked)
