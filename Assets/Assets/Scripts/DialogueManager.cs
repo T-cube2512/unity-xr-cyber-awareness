@@ -10,7 +10,6 @@ public class DialogueManager : MonoBehaviour
     public Text DialogText;
     public Animator animator;
     public AudioSource audioSource;
-
     public FlagHandler flagHandler;
     private Queue<string> sentences;
     private Queue<AudioClip> voicelines;
@@ -65,7 +64,7 @@ public class DialogueManager : MonoBehaviour
     {
         audioSource.Play();
 
-        Debug.Log("playing audio " + audioSource.clip.ToString());
+        //Debug.Log("playing audio " + audioSource.clip.ToString());
         DialogText.text = "";
         foreach (char letters in sentence.ToCharArray())
         {

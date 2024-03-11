@@ -1262,8 +1262,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -207.51, y: 48.3}
-  m_SizeDelta: {x: 433.97, y: 47.05}
+  m_AnchoredPosition: {x: -163.3, y: 48.3}
+  m_SizeDelta: {x: 522.3, y: 47}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &941803041
 MonoBehaviour:
@@ -1298,7 +1298,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: SATORU GOJO - THE CHOSEN ONE
+  m_Text: SATORU GOJO - THE HONORED ONE
 --- !u!222 &941803042
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1358,6 +1358,8 @@ MonoBehaviour:
     - {fileID: 8300000, guid: c458211704ee96b4ba69465434cd6609, type: 3}
     - {fileID: 8300000, guid: 33c449b1316e2a544bd325f414becece, type: 3}
     - {fileID: 8300000, guid: a6bc7f93705ba2e4e81ff4c4bbc5d28b, type: 3}
+  manager: {fileID: 0}
+  flags: {fileID: 0}
 --- !u!4 &967613991
 Transform:
   m_ObjectHideFlags: 0
@@ -1610,6 +1612,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3638898573886940823, guid: 27c212407e2ca49409ed80e5b3dafd0c, type: 3}
       propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4427341618969730338, guid: 27c212407e2ca49409ed80e5b3dafd0c, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4515148244842391092, guid: 27c212407e2ca49409ed80e5b3dafd0c, type: 3}
@@ -1943,7 +1949,8 @@ PrefabInstance:
       value: monitor
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 5233112405309087440, guid: 20dbfc790e78da4429e35e87e4682de7, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 20dbfc790e78da4429e35e87e4682de7, type: 3}
       insertIndex: -1
@@ -2571,7 +2578,7 @@ MonoBehaviour:
   DialogText: {fileID: 1375994829}
   animator: {fileID: 360111252}
   audioSource: {fileID: 1906270901}
-  flagHandler: {fileID: 0}
+  flagHandler: {fileID: 854259803}
 --- !u!114 &1765461602 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7042043575025482123, guid: 27c212407e2ca49409ed80e5b3dafd0c, type: 3}
