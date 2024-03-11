@@ -9,6 +9,7 @@ public class FlagHandler : MonoBehaviour
     [SerializeField]
     public bool virusAttackedFlag;
     public bool networkShutFlag;
+    public bool taskOpenedFlag;
     public bool taskEndedFlag;
 
     public void setVirusAttackedFlag(bool x)
@@ -24,6 +25,13 @@ public class FlagHandler : MonoBehaviour
 
     }
 
+    public void setTaskOpenFlag(bool x)
+    {
+        taskOpenedFlag = x;
+        Debug.Log("task opened");
+
+    }
+
     public void setTaskEndedFlag(bool x)
     { 
         taskEndedFlag = x;
@@ -36,6 +44,9 @@ public class FlagHandler : MonoBehaviour
 
     public bool getNetworkShutFlag()
     { return networkShutFlag; }
+
+    public bool getTaskOpenFlag()
+    { return taskOpenedFlag; }
 
     public bool getTaskEndedFlag()
     { return taskEndedFlag; }

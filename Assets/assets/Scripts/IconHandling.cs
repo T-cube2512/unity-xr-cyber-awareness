@@ -21,6 +21,7 @@ public class IconHandling : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     public GameObject wifiscreen;
     public GameObject taskmanagerscreen;
     public GameObject ocwifi;
+    public DialogueTrigger DialogTrigger;
 
     public GameObject holoprojector;
     public GameObject gojosatoru;
@@ -93,6 +94,7 @@ public class IconHandling : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
             if (doubleClicked && isTaskManager)
             {
+                FlagHandler.setTaskOpenFlag(true);
                 taskmanagerscreen.SetActive(true);
             }
 
@@ -158,11 +160,19 @@ public class IconHandling : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
     }
 
+    public void dissappearocwifi()
+    {
+        ocwifi.SetActive(false);
+        FlagHandler.setNetworkShutFlag(true);
+    }
+
     public void activateholo()
     {
         holoprojector.SetActive(true);
         gojosatoru.SetActive(true);
+        DialogTrigger.TriggerDialogue();
     }
+
     private void Update()
     {
         if (clicked)
@@ -171,11 +181,11 @@ public class IconHandling : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         if(FlagHandler.getVirusAttackedFlag())
         {
             desktop.GetComponent<Image>().sprite = virusbg;
-            Debug.Log("changed wp");
+            //Debug.Log("changed wp");
             if(isSoftwareApp)
             {
                 icon.GetComponent<Image>().sprite = virusicon;
-            Debug.Log("changed icon" +gameObject.name);
+            //Debug.Log("changed icon" +gameObject.name);
 
 
             }
