@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Video;
 
 
 public class DialogueManager : MonoBehaviour
@@ -10,6 +11,7 @@ public class DialogueManager : MonoBehaviour
     public Text DialogText;
     public Animator animator;
     public AudioSource audioSource;
+    public VideoPlayer videoPlayer;
     public FlagHandler flagHandler;
     private Queue<string> sentences;
     private Queue<AudioClip> voicelines;
@@ -63,6 +65,7 @@ public class DialogueManager : MonoBehaviour
     IEnumerator TypeSentence(string sentence)
     {
         audioSource.Play();
+        
 
         //Debug.Log("playing audio " + audioSource.clip.ToString());
         DialogText.text = "";
@@ -72,7 +75,18 @@ public class DialogueManager : MonoBehaviour
             yield return null;
         }
     }
- 
+    
+    public void playvideo(VideoClip video)
+    {
+        videoPlayer.clip = video; 
+        videoPlayer.isLooping = true;
+        videoPlayer.Play();
+    }
+
+    public void stopvideo()
+    {
+        videoPlayer.Stop();
+    }
 
     public void EndDialogue()
     {

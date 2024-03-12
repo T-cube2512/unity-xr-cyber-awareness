@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class FlagHandler : MonoBehaviour
 {
-
-
+    public DialogueTrigger dialtrig;
+    public bool dialogstarted;
     [SerializeField]
     public bool virusAttackedFlag;
     public bool networkShutFlag;

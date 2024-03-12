@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Video;
 
 
 [System.Serializable]
@@ -11,5 +12,6 @@ public class Dialogue
     public string[] sentences;
     public AudioClip[] voicelines;
 
+    public VideoClip[] tutorials;
     
 }
