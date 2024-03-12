@@ -3254,6 +3254,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa6b9567a529b5b4d964db5b133f837f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialtrig: {fileID: 0}
+  dialogstarted: 0
   virusAttackedFlag: 0
   networkShutFlag: 0
   taskOpenedFlag: 0
@@ -4338,7 +4340,6 @@ GameObject:
   - component: {fileID: 3332811706532838377}
   - component: {fileID: 3314397184802021431}
   - component: {fileID: 8571397934073850950}
-  - component: {fileID: 1410191519276322271}
   - component: {fileID: 3233149718012867009}
   m_Layer: 0
   m_Name: Text (Legacy)
@@ -4408,35 +4409,6 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Click to Learn More about WannaCrypt0r
---- !u!114 &1410191519276322271
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4479834930502993129}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 0
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 3233149718012867009}
-          m_TargetAssemblyTypeName: TextClicked, Assembly-CSharp
-          m_MethodName: ontextpressed
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!114 &3233149718012867009
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4451,6 +4423,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text: {fileID: 0}
   textobject: {fileID: 0}
+  VideoPlayer: {fileID: 0}
   hovercolor: {r: 0, g: 0.44439226, b: 0.745283, a: 0}
   regularcolor: {r: 0, g: 0.6393188, b: 0.7735849, a: 0}
   FlagHandler: {fileID: 5203460633951454855}
@@ -8153,6 +8126,7 @@ RectTransform:
   - {fileID: 7417785975390779581}
   - {fileID: 4917955704754657442}
   - {fileID: 3011420010603139610}
+  - {fileID: 3720735980922810461}
   - {fileID: 4433096155985150138}
   - {fileID: 3830139796237455113}
   - {fileID: 8381669356230354714}
@@ -8160,7 +8134,6 @@ RectTransform:
   - {fileID: 1234524793645839908}
   - {fileID: 2188702994936383080}
   - {fileID: 353802324034472516}
-  - {fileID: 3720735980922810461}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}

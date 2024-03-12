@@ -13,5 +13,7 @@ public class Dialogue
     public AudioClip[] voicelines;
 
     public VideoClip[] tutorials;
+
+    
     
 }

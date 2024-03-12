@@ -15,13 +15,17 @@ public class DialogueManager : MonoBehaviour
     public FlagHandler flagHandler;
     private Queue<string> sentences;
     private Queue<AudioClip> voicelines;
+    private Queue<VideoClip> tutorialvid;
 
+    public string currentsentence;
+    public AudioClip currentaudio;
 
     private void Start()
     {
         
         sentences = new Queue<string>();
         voicelines = new Queue<AudioClip>();
+        tutorialvid = new Queue<VideoClip>();
     }
 
     public void startDialogue(Dialogue dialogue)
@@ -38,11 +42,15 @@ public class DialogueManager : MonoBehaviour
         {
             voicelines.Enqueue(voice);
         }
+        foreach (VideoClip vid in dialogue.tutorials)
+        {
+            tutorialvid.Enqueue(vid);
+        }
 
-        DisplayNextSentence();
+        DisplayNextSentence(false);
     }
 
-    public void DisplayNextSentence()
+    public void DisplayNextSentence(bool withvid)
     {
         if(sentences.Count == 0 ) 
         {
@@ -50,23 +58,37 @@ public class DialogueManager : MonoBehaviour
             return;
         }
 
+
+
         string sentence = sentences.Dequeue();
+        currentsentence = sentence;
         AudioClip voice = voicelines.Dequeue();
+        currentaudio = voice;
         audioSource.clip = voice;
+        if (withvid)
+        {
+            VideoClip videoClip = tutorialvid.Dequeue();
+            videoPlayer.clip = videoClip;
+        }
+        //float fin = audioSource.clip.length;
 
         StopAllCoroutines();
         
-        StartCoroutine(TypeSentence(sentence));
+        StartCoroutine(TypeSentence(sentence,withvid));
 
         
         
     }
 
-    IEnumerator TypeSentence(string sentence)
+    IEnumerator TypeSentence(string sentence, bool withvid)
     {
         audioSource.Play();
+        float fin = audioSource.clip.length;
+        if (withvid)
+        {
+            videoPlayer.Play();
+        }
         
-
         //Debug.Log("playing audio " + audioSource.clip.ToString());
         DialogText.text = "";
         foreach (char letters in sentence.ToCharArray())
@@ -74,19 +96,13 @@ public class DialogueManager : MonoBehaviour
             DialogText.text += letters;
             yield return null;
         }
+       
+            yield return new WaitForSeconds(fin);
+
     }
     
-    public void playvideo(VideoClip video)
-    {
-        videoPlayer.clip = video; 
-        videoPlayer.isLooping = true;
-        videoPlayer.Play();
-    }
 
-    public void stopvideo()
-    {
-        videoPlayer.Stop();
-    }
+
 
     public void EndDialogue()
     {
