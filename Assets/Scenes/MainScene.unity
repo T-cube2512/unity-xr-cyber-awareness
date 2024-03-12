@@ -1665,6 +1665,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1026409509}
     - target: {fileID: 3233149718012867009, guid: 27c212407e2ca49409ed80e5b3dafd0c, type: 3}
+      propertyPath: hovercolor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3233149718012867009, guid: 27c212407e2ca49409ed80e5b3dafd0c, type: 3}
       propertyPath: DialogTrigger
       value: 
       objectReference: {fileID: 967613990}
@@ -1672,6 +1676,10 @@ PrefabInstance:
       propertyPath: holoprojector
       value: 
       objectReference: {fileID: 3052192}
+    - target: {fileID: 3233149718012867009, guid: 27c212407e2ca49409ed80e5b3dafd0c, type: 3}
+      propertyPath: regularcolor.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3334649849898045564, guid: 27c212407e2ca49409ed80e5b3dafd0c, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -1735,6 +1743,10 @@ PrefabInstance:
     - target: {fileID: 3853432971246924810, guid: 27c212407e2ca49409ed80e5b3dafd0c, type: 3}
       propertyPath: m_RenderMode
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3853432971246924810, guid: 27c212407e2ca49409ed80e5b3dafd0c, type: 3}
+      propertyPath: m_AspectRatio
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3853432971246924810, guid: 27c212407e2ca49409ed80e5b3dafd0c, type: 3}
       propertyPath: m_TargetTexture
@@ -2001,10 +2013,10 @@ PrefabInstance:
       addedObject: {fileID: 1026409510}
     - targetCorrespondingSourceObject: {fileID: 4717578247453494009, guid: 27c212407e2ca49409ed80e5b3dafd0c, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1026409513}
+      addedObject: {fileID: 1026409518}
     - targetCorrespondingSourceObject: {fileID: 4717578247453494009, guid: 27c212407e2ca49409ed80e5b3dafd0c, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1026409511}
+      addedObject: {fileID: 1026409515}
   m_SourcePrefab: {fileID: 100100000, guid: 27c212407e2ca49409ed80e5b3dafd0c, type: 3}
 --- !u!1 &1026409505 stripped
 GameObject:
@@ -2051,7 +2063,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1026409508}
   text: {fileID: 1026409505}
---- !u!114 &1026409511
+--- !u!222 &1026409512
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1026409509}
+  m_CullTransparentMesh: 1
+--- !u!114 &1026409515
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2078,15 +2098,7 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
---- !u!222 &1026409512
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1026409509}
-  m_CullTransparentMesh: 1
---- !u!222 &1026409513
+--- !u!222 &1026409518
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
