@@ -22,6 +22,7 @@ public class FlagHandler : MonoBehaviour
     { 
         networkShutFlag = x;
         Debug.Log("network shut");
+        StartCoroutine(dialtrig.series2());
 
     }
 
@@ -29,14 +30,14 @@ public class FlagHandler : MonoBehaviour
     {
         taskOpenedFlag = x;
         Debug.Log("task opened");
-
+        StartCoroutine(dialtrig.series3());
     }
 
     public void setTaskEndedFlag(bool x)
     { 
         taskEndedFlag = x;
         Debug.Log("task ended");
-
+        StartCoroutine(dialtrig.series4());
     }
 
     public bool getVirusAttackedFlag()

@@ -12,6 +12,8 @@ public class DialogueManager : MonoBehaviour
     public Animator animator;
     public AudioSource audioSource;
     public VideoPlayer videoPlayer;
+    public GameObject videoplayerGO;
+
     public FlagHandler flagHandler;
     private Queue<string> sentences;
     private Queue<AudioClip> voicelines;
@@ -26,6 +28,7 @@ public class DialogueManager : MonoBehaviour
         sentences = new Queue<string>();
         voicelines = new Queue<AudioClip>();
         tutorialvid = new Queue<VideoClip>();
+        videoplayerGO.SetActive(false);
     }
 
     public void startDialogue(Dialogue dialogue)
@@ -70,6 +73,7 @@ public class DialogueManager : MonoBehaviour
             VideoClip videoClip = tutorialvid.Dequeue();
             videoPlayer.clip = videoClip;
         }
+       
         //float fin = audioSource.clip.length;
 
         StopAllCoroutines();
@@ -86,10 +90,13 @@ public class DialogueManager : MonoBehaviour
         float fin = audioSource.clip.length;
         if (withvid)
         {
+            videoplayerGO.SetActive(true);
             videoPlayer.Play();
         }
         else
         {
+            videoplayerGO.SetActive(false);
+
             videoPlayer.Stop();
         }
         

@@ -189,8 +189,9 @@ public class IconHandling : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
     public void endtask()
     {
+        virustask.SetActive(false);
         FlagHandler.setTaskEndedFlag(true);
         FlagHandler.setVirusAttackedFlag(false);
-        virustask.SetActive(false );
+        
     }
 }

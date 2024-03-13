@@ -19,7 +19,11 @@ public class videohandler : MonoBehaviour
     }
     void Update()
     {
-        if(!player.isPlaying)
+        if(player.isPlaying)
+        {
+            text.SetActive(false);
+        }
+        else
         {
             text.SetActive(true);
         }

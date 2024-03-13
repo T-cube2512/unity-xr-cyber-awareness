@@ -24,7 +24,7 @@ public class TextClicked : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     private void Start()
     {
-        //textobject.SetActive(false);
+        textobject.SetActive(false);
         text.color = regularcolor;
     }
 

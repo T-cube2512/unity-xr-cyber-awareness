@@ -1873,6 +1873,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5203460633951454855, guid: 27c212407e2ca49409ed80e5b3dafd0c, type: 3}
+      propertyPath: dialtrig
+      value: 
+      objectReference: {fileID: 967613990}
     - target: {fileID: 5818717905508758949, guid: 27c212407e2ca49409ed80e5b3dafd0c, type: 3}
       propertyPath: m_Layer
       value: 0
@@ -2547,7 +2551,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 336cf015a0d0b424a843f0bcbd7020ec, type: 3}
+    m_Font: {fileID: 12800000, guid: 90bc9b82f382bde40a346320ee9b65a8, type: 3}
     m_FontSize: 40
     m_FontStyle: 1
     m_BestFit: 0
@@ -2858,6 +2862,7 @@ MonoBehaviour:
   animator: {fileID: 360111252}
   audioSource: {fileID: 1906270901}
   videoPlayer: {fileID: 505092157}
+  videoplayerGO: {fileID: 505092153}
   flagHandler: {fileID: 854259803}
   currentsentence: 
   currentaudio: {fileID: 0}
