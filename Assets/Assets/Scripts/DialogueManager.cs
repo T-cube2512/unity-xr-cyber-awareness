@@ -88,6 +88,10 @@ public class DialogueManager : MonoBehaviour
         {
             videoPlayer.Play();
         }
+        else
+        {
+            videoPlayer.Stop();
+        }
         
         //Debug.Log("playing audio " + audioSource.clip.ToString());
         DialogText.text = "";
@@ -101,8 +105,6 @@ public class DialogueManager : MonoBehaviour
 
     }
     
-
-
 
     public void EndDialogue()
     {
